@@ -1,0 +1,16 @@
+VICTIM:
+  ARCH: 'efficientnet_b3'
+  DATASET: 'CUBS200'
+  DATA_ROOT: '/raid/home/akshitj/research/datasets'
+  PATH: '/raid/home/akshitj/research/matcomp/ckpts/cubs200-resnet34/ckpt.tar'
+TRAIN:
+  EPOCH: 200
+  OPTIMIZER: "SGD"
+  LR: 0.02
+  BATCH: 64
+  MILESTONES: [30,60,90,120,180]
+  MOMENTUM: 0.9
+  WDECAY: 0.0
+TRIALS: 1
+METHOD_NAME: 'effi_b3_victim'
+OUT_DIR: '/raid/home/akshitj/research/matcomp/effi_victim_cubs'

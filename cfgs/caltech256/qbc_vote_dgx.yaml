@@ -1,0 +1,37 @@
+VICTIM:
+  ARCH: 'resnet34'
+  DATASET: 'Caltech256'
+  DATA_ROOT: '/mnt/disk1/akshitj/research/datasets'
+  PATH: '/mnt/disk1/akshitj/research/matcomp/ckpts/caltech256-resnet34/ckpt.tar'
+THIEF:
+  ARCH: ['resnet34', 'alexnet', 'densenet121', 'mobilenet_v3_large', 'efficientnet_b2']
+  # ARCH: ['efficientnet_b1_v2','efficientnet_b0','efficientnet_b1_v1','efficientnet_b2']
+  # ARCH: ['efficientnet_b2']
+  # ARCH: ['densenet121']
+  # ARCH: ['alexnet']
+  # ARCH: ['resnet34']
+  # ARCH: ['mobilenet_v3_large']
+  DATA_ROOT: '/mnt/disk1/akshitj/research/datasets/Imagenet_full/Imagenet_2010_train/full_data'
+  DATASET: 'imagenet_full'
+  SUBSET: 1281167
+ACTIVE:
+  BUDGET: 30000
+  STDAUG: True
+  METHOD: 'qbc_vote'
+  CYCLES: 10
+  # USE_PRETRAINED: True
+  # PRETRAINED_PATH : '/home/ankita_temp/scratch/model_stealing/MSA_results/ckpts/resnet34-imagenet1k-pretrained.pth'
+TRAIN:
+  EPOCH: 200
+  OPTIMIZER: "SGD"
+  LR: 0.02
+  BATCH: 128
+  MILESTONES: [30,60,90,120,180]
+  MOMENTUM: 0.9
+  WDECAY: 0.0
+TRIALS: 1
+METHOD_NAME: 'qbc_5_majvote'
+OUT_DIR: '/mnt/disk1/akshitj/research/matcomp/.results'
+
+
+

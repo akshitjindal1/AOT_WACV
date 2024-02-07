@@ -1,0 +1,31 @@
+VICTIM:
+  ARCH: 'resnet34'
+  DATASET: 'CUBS200'
+  DATA_ROOT: 'data'
+  PATH: 'ckpts/cubs200-resnet34/checkpoint.pth.tar'
+THIEF:
+  ARCH: 'resnet34'
+  # DATA_ROOT: '/home/akshitj/model_stealing/Imagenet_full/Imagenet_2010_train/full_data'
+  DATA_ROOT: '/DATA/scratch/ankita/Imagenet/ILSVRC/Data/CLS-LOC/train'
+  DATASET: 'imagenet_subset'
+  SUBSET: 128116
+ACTIVE:
+  BUDGET: 30000
+  STDAUG: True
+  AUGMENT: 'cutmix'
+  CUTMIX_PROB: 0.5
+  METHOD: 'random'
+  USE_PRETRAINED: True
+  # PRETRAINED_PATH : 'results/CUBS200_resnet34/imagenet_full_resnet34/resnet34.pth'
+  PRETRAINED_PATH : '/home/ankita/model_stealing/MSA/ckpts/resnet34-imagenet1k-pretrained.pth'
+TRIALS: 1
+OUT_DIR: '/home/ankita/scratch/MSA_results'
+METHOD_NAME: 'id30k_cutmix'
+TRAIN:
+  BATCH: 128
+  MOMENTUM: 0.9
+  EPOCH: 500
+  OPTIMIZER: "SGD"
+  LR: 0.02
+  MILESTONES: [60,120,180]
+  WDECAY: 0.

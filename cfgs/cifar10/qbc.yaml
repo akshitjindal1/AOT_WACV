@@ -1,0 +1,30 @@
+VICTIM:
+  ARCH: 'resnet32'
+  DATASET: 'CIFAR10'
+  DATA_ROOT: 'data'
+  PATH: 'ckpts/cifar10-resnet32/ckpt.pt'
+THIEF:
+  ARCH: ['resnet34', 'alexnet', 'densenet121', 'mobilenet_v3_large', 'efficientnet_b2']
+  # ARCH: ['efficientnet_b1_v2','efficientnet_b0','efficientnet_b1_v1','efficientnet_b2']
+  # ARCH: ['alexnet']
+  # ARCH: ['densenet121']
+  # ARCH: ['efficientnet_b2']
+  # ARCH: ['mobilenet_v3_large']
+  # ARCH: ['resnet32']
+  DATASET: 'imagenet32'
+  DATA_ROOT: '/mnt/disk1/akshitj/research/datasets/Imagenet32_train'
+  SUBSET: 40000
+ACTIVE:
+  BUDGET: 30000
+  STDAUG: True
+  METHOD: 'qbc'
+  CYCLES: 10
+TRAIN:
+  EPOCH: 200
+  OPTIMIZER: 'SGD'
+  LR: 0.02
+  BATCH: 128
+  MILESTONES: [50, 120, 180, 240, 300, 360, 420]
+TRIALS: 1
+METHOD_NAME: 'qbc_5'
+OUT_DIR: '/mnt/disk1/akshitj/research/to_upload/.results'

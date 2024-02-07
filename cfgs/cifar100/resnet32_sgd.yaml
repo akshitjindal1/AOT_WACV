@@ -1,0 +1,19 @@
+VICTIM:
+  ARCH: 'resnet32'
+  DATASET: 'CIFAR100'
+  PATH: 'ckpts/cifar100-resnet32/checkpoint.tar'
+THIEF:
+  ARCH: 'resnet32'
+  DATA_ROOT: '/home/vikram/akshitj/model_stealing/Imagenet32_train'
+ACTIVE:
+  BUDGET: 30000
+  STDAUG: True
+  METHOD: 'entropy'
+TRIALS: 1
+METHOD_NAME: 'entropy'
+TRAIN:
+  EPOCH: 200
+  OPTIMIZER: 'SGD'
+  LR: 0.02
+  BATCH: 128
+  MILESTONES: [50, 120, 180, 240, 300, 360, 420]

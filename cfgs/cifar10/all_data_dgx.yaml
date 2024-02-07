@@ -1,0 +1,24 @@
+VICTIM:
+  ARCH: 'resnet32'
+  DATASET: 'CIFAR10'
+  DATA_ROOT: 'data'
+  PATH: 'ckpts/cifar10-resnet32/ckpt.pt'
+THIEF:
+  ARCH: ['efficientnet_b2'] #,'mobilenet_v3_large','densenet121','resnet32']
+  DATASET: 'imagenet32'
+  DATA_ROOT: '/raid/home/akshitj/research/datasets/Imagenet32_train'
+  SUBSET: 1281167
+ACTIVE:
+  BUDGET: 1281167
+  STDAUG: True
+  METHOD: 'random'
+  CYCLES: 10
+TRAIN:
+  EPOCH: 100
+  OPTIMIZER: 'SGD'
+  LR: 0.02
+  BATCH: 128
+  MILESTONES: [50, 120, 180, 240, 300, 360, 420]
+TRIALS: 1
+METHOD_NAME: 'random_all_effi'
+OUT_DIR: '/raid/home/akshitj/research/matcomp/.results'
