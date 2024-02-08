@@ -25,7 +25,7 @@ from train_utils import testz, train_with_validation, agree, dist, agreement_dif
 from conf import cfg, load_cfg_fom_args
 import datasets
 from collections import Counter, defaultdict
-from qbc_models import CommitteeMember
+from AOT_WACV.aot_models import CommitteeMember
 from scipy.special import softmax
 from scipy.stats import entropy
 torch.backends.cudnn.deterministic = True
