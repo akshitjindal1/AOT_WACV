@@ -1,4 +1,4 @@
-from AOT_WACV.aot import *
+from aot import *
 import matplotlib.pyplot as plt
 import plotly.express as px
 import os

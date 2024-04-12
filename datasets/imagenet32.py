@@ -20,7 +20,7 @@ class ImageNet32(Dataset):
         if val:
             filenames = [os.path.join(data_root, 'val_data')]
         else:    
-            filenames = [('train_data_batch_%d' % (i+1)) for i in range(2)]
+            filenames = [('train_data_batch_%d' % (i+1)) for i in range(9)]
             filenames = [os.path.join(data_root, f) for f in filenames]
         
         self.samples = []
