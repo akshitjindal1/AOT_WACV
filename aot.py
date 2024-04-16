@@ -197,6 +197,7 @@ if __name__ == "__main__":
                 thief_model = model.model
                 # import pdb;pdb.set_trace()
                 #load testset with appropriate transformations to work with thief model
+                
                 testset_pretrained = load_victim_dataset(cfg.VICTIM.DATASET,arch,load_for_pretrained=True,pretrained_transform=model.transforms)
                 test_loader_pretrained = DataLoader(testset_pretrained, batch_size=128, num_workers=4, shuffle=False, pin_memory=False)
                 

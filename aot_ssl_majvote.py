@@ -1,4 +1,4 @@
-from aot.aot import *
+from aot import *
 import matplotlib.pyplot as plt
 import plotly.express as px
 import os
@@ -139,6 +139,7 @@ if __name__ == "__main__":
     #load the best cycle for each ensemble member
     with open(os.path.join(cfg.SAVE_DIR, "best_model_cycle_dic.pkl"), 'rb') as f:
         best_model_cycle = pickle.load(f)
+    print(best_model_cycle)
     
     model_pred_dict = defaultdict(list)
     for arch in arch_list:

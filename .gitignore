@@ -9,6 +9,8 @@ ckpts/
 
 # C extensions
 *.so
+*.txt
+*.zip
 
 # Distribution / packaging
 .Python

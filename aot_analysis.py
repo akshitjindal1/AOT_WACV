@@ -148,6 +148,9 @@ if __name__ == "__main__":
                 pred_labels.append(pred)
             best_model_cycle_preds[arch].extend(pred_labels)
 
+    with open(os.path.join(cfg.SAVE_DIR, "best_model_cycle_dic.pkl"), 'wb') as f:
+        pickle.dump(best_model_cycle,f)
+    
     for img, label in test_loader:
     # for img, label,_ in test_loader: #FOR CALTECH256 and other datasets
         img = img.cuda()
@@ -201,8 +204,7 @@ if __name__ == "__main__":
     acc,agr = acc_and_agr(combined_preds,best_model_cycle_preds['gt'],best_model_cycle_preds['victim'])
     print(f"Ensemble accuracy:{acc} agreement:{agr}")
     
-    with open(os.path.join(cfg.SAVE_DIR, "best_model_cycle_dic.pkl"), 'wb') as f:
-        pickle.dump(best_model_cycle,f)
+
     
     
     import pdb;pdb.set_trace()
