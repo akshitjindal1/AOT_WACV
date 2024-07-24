@@ -1,10 +1,5 @@
 # AOT_WACV
-Code for the paper "Army of Thieves: Enhancing Black-Box Model Extraction via Ensemble based sample selection"
-
-
-```
-conda env create -f environment.yml
-```
+Code for the paper "Army of Thieves: Enhancing Black-Box Model Extraction via Ensemble based sample selection" (<a href="https://arxiv.org/abs/2311.04588">Arxiv link</a>)
 
 ## Steps to reproduce results:
 ### 1. Create environment using conda 
@@ -24,7 +19,7 @@ python aot.py --cfg=cfgs/cifar10/aot.yaml
 ```
 python aot_analysis.py --cfg=cfgs/cifar10/aot.yaml
 ```
-To use semi-supervised learning algorithm proposed in the paper, use aot_ssl_majvote.py (for CIFAR-10) and aot_ssl_fixmatch.py (for other datasets) with the same configuration file.<br>
+To use semi-supervised learning algorithm proposed in the paper, use <i>aot_ssl_majvote.py</i> (for CIFAR-10) and <a>aot_ssl_fixmatch.py</a> (for other datasets) with the same configuration file.<br>
 Similarly for checking adversarial transferability, use the adv_transfer.py file with the same configuration file. Note that you need to run aot_analysis.py before doing this step. <br>
 Finally you should obtain all the necessary models and statistics in the specified results directory. A sample graph is shown below.
 <img src='training_cycles.png'></img>
