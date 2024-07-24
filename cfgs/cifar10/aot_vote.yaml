@@ -11,7 +11,7 @@ THIEF:
 ACTIVE:
   BUDGET: 30000
   STDAUG: True
-  METHOD: 'qbc_vote'
+  METHOD: 'aot_vote'
   CYCLES: 10
 TRAIN:
   EPOCH: 100
@@ -20,5 +20,5 @@ TRAIN:
   BATCH: 128
   MILESTONES: [50, 120, 180, 240, 300, 360, 420]
 TRIALS: 1
-METHOD_NAME: 'qbc_5_vote'
+METHOD_NAME: 'aot_5_vote'
 OUT_DIR: '/raid/home/akshitj/research/matcomp/.results'

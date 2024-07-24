@@ -62,9 +62,7 @@ def load_victim_dataset(dataset_name, model_arch,load_for_pretrained=False,pretr
 
 def load_victim_model(arch, model_path, n_classes):
     # Define architecture
-    if arch == 'cnn32':
-        target_model = Simodel() 
-    elif arch == 'resnet32':
+    if arch == 'resnet32':
         target_model = cifar10_resnet34(num_classes=n_classes)
     elif arch == 'resnet34':
         target_model = torch.hub.load("pytorch/vision:v0.14.1","resnet34")
@@ -270,7 +268,7 @@ if __name__ == "__main__":
                         idx = idx.cpu().detach().numpy()
                         pred = pred.cpu().detach().numpy()
                         for i,index in enumerate(idx):
-                            if cfg.ACTIVE.METHOD == 'qbc+kcenter':
+                            if cfg.ACTIVE.METHOD == 'aot+kcenter':
                                 labeled_pred_dict[index] = pred[i]    
                             else:
                                 labeled_pred_dict[index] = softmax(pred[i]).round(4)
@@ -288,7 +286,7 @@ if __name__ == "__main__":
                         idx = idx.cpu().detach().numpy()
                         pred = pred.cpu().detach().numpy()
                         for i,index in enumerate(idx):
-                            if cfg.ACTIVE.METHOD == 'qbc+kcenter':
+                            if cfg.ACTIVE.METHOD == 'aot+kcenter':
                                 unlabeled_pred_dict[index] = pred[i]    
                             else:
                                 unlabeled_pred_dict[index] = softmax(pred[i]).round(4)
@@ -316,7 +314,7 @@ if __name__ == "__main__":
             if cycle!=cfg.ACTIVE.CYCLES-1:
                 if cfg.ACTIVE.METHOD == 'random':
                     continue
-                if cfg.ACTIVE.METHOD == 'qbc':
+                if cfg.ACTIVE.METHOD == 'aot':
                     #load all saved prediction files
                     model_pred_dict = dict()
                     for arch in cfg.THIEF.ARCH:
@@ -335,7 +333,7 @@ if __name__ == "__main__":
                     arg = np.argsort(np.array(uncertainty))
                     selected_index_list = np.array(indexes)[arg][-(cfg.ACTIVE.ADDENDUM):]
                 
-                elif cfg.ACTIVE.METHOD == 'qbc_vote':
+                elif cfg.ACTIVE.METHOD == 'aot_vote':
                     #load all saved prediction files
                     model_pred_dict = dict()
                     for arch in cfg.THIEF.ARCH:
@@ -357,7 +355,7 @@ if __name__ == "__main__":
                     arg = np.argsort(np.array(uncertainty))
                     selected_index_list = np.array(indexes)[arg][-(cfg.ACTIVE.ADDENDUM):]
                 
-                elif cfg.ACTIVE.METHOD == 'qbc+kcenter':
+                elif cfg.ACTIVE.METHOD == 'aot+kcenter':
                     #load all saved prediction files
                     model_pred_dict_labeled, model_pred_dict_unlabeled = dict(), dict()
                     for arch in cfg.THIEF.ARCH:
@@ -403,7 +401,7 @@ if __name__ == "__main__":
                     # selected_index_list = np.array(indexes)[arg][-cfg.ACTIVE.ADDENDUM:]
 
 
-                    # #apply qbc consensus function
+                    # #apply aot consensus function
                     # uncertainty,indexes = [],[]
                     # for idx,pred_list in idx_vs_pred_unlabeled.items():
                     #     indexes.append(idx)
@@ -428,13 +426,13 @@ if __name__ == "__main__":
                     # selected_index_list = list(dict(sorted(selected_idx_vs_dist.items(), key=lambda item: -1*item[1])).keys())[:cfg.ACTIVE.ADDENDUM]
                     
                     #KMEANS++++ 
-                    #apply qbc consensus function
+                    #apply aot consensus function
                     uncertainty,indexes = [],[]
                     for idx,pred_list in idx_vs_pred_unlabeled.items():
                         indexes.append(idx)
                         uncertainty.append(entropy(np.array(pred_list).sum(axis=0)))
                     arg = np.argsort(np.array(uncertainty))
-                    qbc_index_list = np.array(indexes)[arg][-200000:]
+                    aot_index_list = np.array(indexes)[arg][-200000:]
 
                     #apply kcenter on the selected_index_list
                     selected_index_list = []
@@ -451,17 +449,17 @@ if __name__ == "__main__":
                             else:
                                 labeled_set_preds = np.array(list(model_pred_dict_labeled[arch].values()))
                             # print(labeled_set_preds.shape)
-                            unlabeled_set_preds = np.array([model_pred_dict_unlabeled[arch][i] for i in qbc_index_list])
+                            unlabeled_set_preds = np.array([model_pred_dict_unlabeled[arch][i] for i in aot_index_list])
                             
                             dists = torch.cdist(torch.tensor(unlabeled_set_preds),torch.tensor(labeled_set_preds)).min(axis=1).values.cpu().numpy()
-                            for i,idx in enumerate(qbc_index_list):
+                            for i,idx in enumerate(aot_index_list):
                                 idx_vs_dists[idx][ind] = min(dists[i],idx_vs_dists[idx][ind])
                             # pdb.set_trace()
-                        dists = [np.mean(idx_vs_dists[idx]) for idx in qbc_index_list]
-                        selected_index = qbc_index_list[np.argmax(dists)]
+                        dists = [np.mean(idx_vs_dists[idx]) for idx in aot_index_list]
+                        selected_index = aot_index_list[np.argmax(dists)]
                         
                         selected_index_list.append(selected_index)
-                        qbc_index_list = np.delete(qbc_index_list,np.argmax(dists))
+                        aot_index_list = np.delete(aot_index_list,np.argmax(dists))
                     
                     
                     

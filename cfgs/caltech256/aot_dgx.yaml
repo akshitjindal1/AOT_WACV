@@ -4,9 +4,9 @@ VICTIM:
   DATA_ROOT: '/mnt/disk1/akshitj/research/datasets'
   PATH: '/mnt/disk1/akshitj/research/matcomp/ckpts/caltech256-resnet34/ckpt.tar'
 THIEF:
-  ARCH: ['resnet34', 'alexnet', 'densenet121', 'mobilenet_v3_large', 'efficientnet_b2']
+  ARCH: ['resnet34', 'alexnet', 'mobilenet_v3_large', 'densenet121', 'efficientnet_b2']
   # ARCH: ['efficientnet_b1_v2','efficientnet_b0','efficientnet_b1_v1','efficientnet_b2']
-  # ARCH: ['efficientnet_b2']
+  # ARCH: ['efficientnet_b6']
   # ARCH: ['densenet121']
   # ARCH: ['alexnet']
   # ARCH: ['resnet34']
@@ -17,7 +17,7 @@ THIEF:
 ACTIVE:
   BUDGET: 30000
   STDAUG: True
-  METHOD: 'qbc_vote'
+  METHOD: 'aot'
   CYCLES: 10
   # USE_PRETRAINED: True
   # PRETRAINED_PATH : '/home/ankita_temp/scratch/model_stealing/MSA_results/ckpts/resnet34-imagenet1k-pretrained.pth'
@@ -30,7 +30,7 @@ TRAIN:
   MOMENTUM: 0.9
   WDECAY: 0.0
 TRIALS: 1
-METHOD_NAME: 'qbc_5_majvote'
+METHOD_NAME: 'aot_5_200epoch'
 OUT_DIR: '/mnt/disk1/akshitj/research/matcomp/.results'
 
 

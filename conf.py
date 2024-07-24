@@ -224,7 +224,7 @@ def load_cfg_fom_args(description="Config options."):
     log_dest = os.path.basename(args.cfg_file)
     log_dest = log_dest.replace('.yaml', '_{}.txt'.format(current_time))
 
-    cfg.SAVE_DIR = f'{_C.OUT_DIR}/{_C.VICTIM.DATASET}_{_C.VICTIM.ARCH}/{_C.THIEF.DATASET}_{"qbc"}/{_C.TRAIN.OPTIMIZER}/{_C.ACTIVE.BUDGET}_val{_C.ACTIVE.VAL}/{_C.ACTIVE.METHOD}_{_C.METHOD_NAME}'
+    cfg.SAVE_DIR = f'{_C.OUT_DIR}/{_C.VICTIM.DATASET}_{_C.VICTIM.ARCH}/{_C.THIEF.DATASET}_{"aot"}/{_C.TRAIN.OPTIMIZER}/{_C.ACTIVE.BUDGET}_val{_C.ACTIVE.VAL}/{_C.ACTIVE.METHOD}_{_C.METHOD_NAME}'
     g_pathmgr.mkdirs(cfg.SAVE_DIR)
     cfg.FOLDER_NAME = _C.FOLDER_NAME
     cfg.LOG_TIME, cfg.LOG_DEST = current_time, log_dest

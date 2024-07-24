@@ -17,7 +17,7 @@ THIEF:
 ACTIVE:
   BUDGET: 30000
   STDAUG: True
-  METHOD: 'qbc+kcenter'
+  METHOD: 'aot+kcenter'
   CYCLES: 10
   # USE_PRETRAINED: True
   # PRETRAINED_PATH : '/home/ankita_temp/scratch/model_stealing/MSA_results/ckpts/resnet34-imagenet1k-pretrained.pth'

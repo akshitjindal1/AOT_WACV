@@ -17,7 +17,7 @@ THIEF:
 ACTIVE:
   BUDGET: 30000
   STDAUG: True
-  METHOD: 'qbc'
+  METHOD: 'aot'
   CYCLES: 10
 TRAIN:
   EPOCH: 200
@@ -26,5 +26,5 @@ TRAIN:
   BATCH: 128
   MILESTONES: [50, 120, 180, 240, 300, 360, 420]
 TRIALS: 1
-METHOD_NAME: 'qbc_5'
+METHOD_NAME: 'aot_5'
 OUT_DIR: '/mnt/disk1/akshitj/research/to_upload/.results'
