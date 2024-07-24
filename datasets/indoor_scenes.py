@@ -18,12 +18,6 @@ from torch.utils.data import Dataset, DataLoader
 
 from torchvision.datasets.folder import ImageFolder, default_loader
 import imageio
-# import knockoff.config as cfg
-
-__author__ = "Tribhuvanesh Orekondy"
-__maintainer__ = "Tribhuvanesh Orekondy"
-__email__ = "orekondy@mpi-inf.mpg.de"
-__status__ = "Development"
 
 
 class Indoor67(ImageFolder):

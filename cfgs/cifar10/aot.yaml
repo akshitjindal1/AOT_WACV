@@ -20,11 +20,11 @@ ACTIVE:
   METHOD: 'aot'
   CYCLES: 10
 TRAIN:
-  EPOCH: 200
+  EPOCH: 10
   OPTIMIZER: 'SGD'
   LR: 0.02
   BATCH: 128
   MILESTONES: [50, 120, 180, 240, 300, 360, 420]
 TRIALS: 1
-METHOD_NAME: 'aot_5'
-OUT_DIR: '/mnt/disk1/akshitj/research/to_upload/.results'
+METHOD_NAME: 'aot_5_check'
+OUT_DIR: '/mnt/disk1/akshitj/research/AOT_WACV/.results'

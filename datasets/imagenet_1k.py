@@ -10,7 +10,6 @@ import torchvision.transforms as transforms
 from torch.utils.data import Dataset
 import torchvision.datasets as datasets
 from torchvision.datasets import imagenet
-# import knockoff.config as cfg
 # import natsort
 import os
 import numpy as np
@@ -18,13 +17,6 @@ from PIL import Image
 from tqdm import tqdm
 import imageio
 from copy import deepcopy
-
-# import knockoff.config as cfg
-
-__author__ = "Tribhuvanesh Orekondy"
-__maintainer__ = "Tribhuvanesh Orekondy"
-__email__ = "orekondy@mpi-inf.mpg.de"
-__status__ = "Development"
 
 def imageio_loader(path: str):
     with open(path, "rb") as f:

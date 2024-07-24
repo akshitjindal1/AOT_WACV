@@ -1,13 +1,5 @@
 from __future__ import absolute_import
 
-'''
-Source for this file: https://github.com/tribhuvanesh/knockoffnets/blob/master/knockoff/models/cifar/resnet.py 
-Source for CIFAR models: https://github.com/bearpaw/pytorch-classification
-by user "bearpaw"
-
-Notes:
- - Network names have been edited to make it consistent with pytorch-torchvision and cadene imagenet models 
-'''
 
 '''Resnet for cifar dataset.
 Ported form

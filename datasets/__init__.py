@@ -10,17 +10,10 @@ from datasets.caltech256 import Caltech256
 from datasets.cifarlike import CIFAR10, CIFAR100, SVHN, TinyImagesSubset
 from datasets.cubs200 import CUBS200
 from datasets.imagenet_1k import ImageNet1k, ImageNet1k_soft
-from datasets.imagenet_subset import ImageNet_Subset, ImageNet_Subset_Complement
-from datasets.imagenet_subset_v2 import ImageNet_Subset_v2
 from datasets.indoor_scenes import Indoor67
 from datasets.imagenet32 import ImageNet32, ImageNet32_Soft
 from datasets.mnistlike import MNIST
-# from knockoff.datasets.cubs200 import CUBS200
-# from knockoff.datasets.diabetic5 import Diabetic5
-# from knockoff.datasets.imagenet1k import ImageNet1k
-# from knockoff.datasets.indoor67 import Indoor67
-# from knockoff.datasets.mnistlike import MNIST, KMNIST, EMNIST, EMNISTLetters, FashionMNIST
-# from knockoff.datasets.tinyimagenet200 import TinyImageNet200
+
 
 
 # Source: https://discuss.pytorch.org/t/is-there-anyway-to-do-gaussian-filtering-for-an-image-2d-3d-in-pytorch/12351/11

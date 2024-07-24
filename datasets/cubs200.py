@@ -18,13 +18,6 @@ from torch.utils.data import Dataset, DataLoader
 
 from torchvision.datasets.folder import ImageFolder, default_loader
 
-# import knockoff.config as cfg
-
-__author__ = "Tribhuvanesh Orekondy"
-__maintainer__ = "Tribhuvanesh Orekondy"
-__email__ = "orekondy@mpi-inf.mpg.de"
-__status__ = "Development"
-
 
 class CUBS200(ImageFolder):
     def __init__(self,cfg, train=True, transform=None, target_transform=None):
