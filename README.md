@@ -19,8 +19,8 @@ python aot.py --cfg=cfgs/cifar10/aot.yaml
 ```
 python aot_analysis.py --cfg=cfgs/cifar10/aot.yaml
 ```
-To use semi-supervised learning algorithm proposed in the paper, use <i>aot_ssl_majvote.py</i> (for CIFAR-10) and <a>aot_ssl_fixmatch.py</a> (for other datasets) with the same configuration file.<br>
-Similarly for checking adversarial transferability, use the adv_transfer.py file with the same configuration file. Note that you need to run aot_analysis.py before doing this step. <br>
+To use semi-supervised learning algorithm proposed in the paper, use <i>aot_ssl_majvote.py</i> (for CIFAR-10) and <i>aot_ssl_fixmatch.py</i> (for other datasets) with the same configuration file.<br><br>
+Similarly for checking adversarial transferability, use the adv_transfer.py file with the same configuration file. Note that you need to run aot_analysis.py before doing this step. <br><br>
 Finally you should obtain all the necessary models and statistics in the specified results directory. A sample graph is shown below.
 <img src='training_cycles.png'></img>
 
